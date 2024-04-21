@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Previsão do tempo</title>
+    <link rel="stylesheet" href="./src/css/estilo.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    </hed>
+
+<body>
+
+    <div class="container">
+        <div class="caixa-de-pesquisa">
+            <i class='bx bxs-map'></i>
+            <input type="text" placeholder="Digite sua localização">
+            <button class="bx bx-search"></button>
+        </div>
+
+        <p class="esconder-cidade">Esconder cidade</p>
+
+        <div class="caixa-meteorologica">
+            <div class="box">
+                <div class="info-clima">
+                    <div class="clima">
+                        <img src="./src/images/cloud.png">
+                        <p class="temperatura">0<span>°C</span> </p>
+                        <p class="descricao">Parcialmente Nublado</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="detalhe-do-tempo">
+            <div class="humidade">
+                <i class='bx bx-water'></i>
+                <div class="text">
+                    <div class="info-humidade">
+                        <span>0%</span>
+                    </div>
+                    <p>Humidade</p>
+                </div>
+            </div>
+
+            <div class="vento">
+                <i class='bx bx-wind'></i>
+                <div class="text">
+                    <div class="info-vento">
+                        <span>0km/h</span>
+                    </div>
+                    <p>Velocidade do Vento</p>
+                </div>
+            </div>
+        </div>
+        <div class="not-found">
+            <div class="box">
+                <img src="./src/images/404.png">
+                <p>Oops! localização não encontrada</p>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="./src/js/index.js"></script>
+</body>
+
+</html>

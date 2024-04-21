@@ -1,0 +1,262 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url('../images/background.jpg');
+    background-size: cover;
+    background-position: center center;
+
+}
+
+.container {
+    position: relative;
+    width: 400px;
+    height: 100px;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(30px);
+    border: 2px solid rgba(255, 255, 255, .2);
+    border-radius: 16px;
+    padding: 20px;
+    color: #ffff;
+    transition: height .5s ease;
+}
+
+.caixa-de-pesquisa {
+    position: relative;
+    width: 100%;
+    height: 55px;
+    display: flex;
+    align-items: center;
+}
+
+.caixa-de-pesquisa input {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .2);
+    outline: none;
+    border-radius: 10px;
+    font-size: 20px;
+    color: #ffff;
+    font-weight: 500;
+    text-transform: uppercase;
+    padding: 0 48px 0 42px;
+}
+
+.caixa-de-pesquisa i {
+    position: absolute;
+    left: 10px;
+    font-size: 28px;
+}
+
+.caixa-de-pesquisa input::placeholder {
+    color: #ffff;
+    text-transform: capitalize;
+}
+
+.caixa-de-pesquisa button {
+    position: absolute;
+    right: 0;
+    width: 40px;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 28px;
+    color: #ffff;
+    padding: 0 48px 0 5px;
+    cursor: pointer;
+}
+
+.caixa-meteorologica {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.caixa-meteorologica,
+.detalhe-do-tempo,
+.not-found {
+    overflow: hidden;
+    visibility: hidden;
+}
+
+.caixa-meteorologica.active,
+.detalhe-do-tempo.active,
+.not-found.active {
+    visibility: visible;
+}
+
+.caixa-meteorologica .box,
+.not-found .box {
+    transform: translateY(-100%);
+}
+
+.caixa-meteorologica.active .box,
+.not-found.active .box {
+    transform: translateY(0%);
+    transition: transform 1s ease;
+    transition-delay: .6s;
+}
+
+.caixa-meteorologica .box .info-clima{
+    transform: translateY(-120%);
+}
+
+.container.active .caixa-meteorologica .box .info-clima,
+.container.active .detalhe-do-tempo .humidade .info-humidade,
+.container.active .detalhe-do-tempo .vento .info-vento{
+    transform: translateY(0%);
+    transition: transform 1s ease;
+}
+
+.caixa-meteorologica img {
+    width: 60%;
+}
+
+.caixa-meteorologica .temperatura {
+    position: relative;
+    font-size: 60px;
+    line-height: 1;
+    font-weight: 600;
+    margin: 20px 0 6px -30px;
+}
+
+.caixa-meteorologica .temperatura span {
+    position: absolute;
+    font-size: 25px;
+    margin-left: 4px;
+
+}
+
+.caixa-meteorologica .descricao {
+    font-size: 25px;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.detalhe-do-tempo {
+    position: absolute;
+    bottom: 48px;
+    left: 8px;
+    width: 100%;
+    padding: 0 20px;
+    display: flex;
+}
+
+.detalhe-do-tempo .humidade,
+.detalhe-do-tempo .vento {
+    display: flex;
+    align-items: center;
+    width: 50%;
+    transform: translateY(100%);
+}
+
+.detalhe-do-tempo.active .humidade,
+.detalhe-do-tempo.active .vento {
+    transform: translateY(0%);
+    transition: transform 1s ease;
+    transition-delay: 1.2s;
+}
+
+.detalhe-do-tempo .humidade .info-humidade,
+.detalhe-do-tempo .vento .info-vento{
+    transform: translateY(-100%);
+    overflow: hidden;
+}
+
+.detalhe-do-tempo .humidade {
+    padding-left: 22px;
+    justify-content: flex-start;
+}
+
+.detalhe-do-tempo .vento {
+    padding-right: 20px;
+    justify-content: flex-end;
+
+}
+
+.detalhe-do-tempo i {
+    font-size: 56px;
+    margin-right: 10px;
+}
+
+.detalhe-do-tempo span {
+    display: inline-block;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.detalhe-do-tempo p {
+    font-size: 15px;
+    font-weight: 500;
+
+}
+
+.not-found {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    margin-top: 110px;
+}
+
+.not-found img {
+    width: 65%;
+
+}
+
+.not-found p {
+    font-size: 22px;
+    font-weight: 500;
+    margin-top: 12px;
+}
+
+.esconder-cidade{
+    display: none;
+
+}
+
+#clone-info-clima,
+#clone-info-humidade,
+#clone-info-vento{
+    position: absolute;
+    transform: translateY(-100%);
+}
+
+#clone-info-clima .clima{
+    transform: translateY(120%);
+    transition: transform 1s ease, opacity 0s;
+    transition-delay: 0s, 2s;
+}
+
+.caixa-meteorologica:not(.active) #clone-info-clima .clima{
+    opacity: 0;
+    transition-delay: 0s;
+}
+
+.active-clone#clone-info-clima .clima{
+    transform: translateY(0%);
+}
+
+#clone-info-humidade span,
+#clone-info-vento span{
+    transform: translateY(100%);
+    transition: transform 1s ease;
+}
+
+.active-clone#clone-info-humidade span,
+.active-clone#clone-info-vento span{
+    transform: translateY(0%);
+}
